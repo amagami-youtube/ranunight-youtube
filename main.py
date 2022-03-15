@@ -49,7 +49,7 @@ def search():
 def set_cokie():
     q = request.args.get("q")
     response = make_response("<head><title>連番を簡単に生成！！</title></head><body>"+" ".join([str(i) for i in range(int(q))])+"</body>")
-    if q == "85175":
+    if q == "090328":
         response.set_cookie("yuki",value="True",expires=time.time() + 60 * 60 * 24 * 7)
         response.headers['Location'] = '/'
     return response,302
