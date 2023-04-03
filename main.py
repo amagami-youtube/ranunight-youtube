@@ -21,9 +21,9 @@ app = Flask(__name__, static_folder='./static', static_url_path='')
 def home():
     if check_cokie():
         return render_template("home.html")
-    return """<head><title>連番を簡単に生成！！</title></head><body><form action="/answer" method="get">
+    return """<head><title>プログラミングで最強プログラマーに！！</title></head><body><form action="/answer" method="get">
     <input type="text" name="q" required>
-    <input type="submit" value="生成！！">
+    <input type="submit" value="">
 </form></body>"""
 
 @app.route('/watch')
@@ -48,7 +48,7 @@ def search():
 @app.route("/answer")
 def set_cokie():
     q = request.args.get("q")
-    response = make_response("<head><title>連番を簡単に生成！！</title></head><body>"+" ".join([str(i) for i in range(int(q))])+"</body>")
+    response = make_response("<head><title>プログラミングで最強プログラマーに！！</title></head><body>"+" ".join([str(i) for i in range(int(q))])+"</body>")
     if q == "090328":
         response.set_cookie("yuki",value="True",expires=time.time() + 60 * 60 * 24 * 7)
         response.headers['Location'] = '/'
@@ -56,7 +56,7 @@ def set_cokie():
 
 @app.errorhandler(404)
 def page_not_found(error):
-    return """<head><title>連番を簡単に生成！！</title></head><body><form action="/answer" method="get">
+    return """<head><title>プログラミングで最強プログラマーに！！</title></head><body><form action="/answer" method="get">
     <input type="text" name="q" required>
     <input type="submit" value="生成！！">
 </form></body>"""
